@@ -1,0 +1,38 @@
+.create__button {
+  padding: 25px;
+  width:30px;
+  height:30px;
+}
+
+#create__link {
+  cursor: pointer;
+}
+
+#create__link:hover {
+  color:  rgba(0, 0, 0, .4);
+}
+
+.mat-row:hover {
+  background-color: rgba(0, 0, 0, .04);
+}
+
+.filter {
+  padding: 20px;
+}
+
+.header__table {
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  justify-content: space-between;
+  width:100%;
+}
+
+.icon {
+  width:30px;
+  height:30px;
+  cursor: pointer;
+  padding:3px;
+  text-decoration: none;
+}
+
+

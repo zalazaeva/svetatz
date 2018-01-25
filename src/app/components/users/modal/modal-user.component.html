@@ -1,0 +1,36 @@
+<div class="create__modal">
+  <p mat-dialog-title>{{_modalTitle}}</p>
+  <div class="create__content">
+
+    <mat-form-field *ngIf="_type == 'UPDATE_USER' || _type == 'CREATE_USER'">
+      <input matInput  placeholder="User name"  [(ngModel)]="_userName" required>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="_type == 'UPDATE_USER' || _type == 'CREATE_USER'">
+      <input matInput   placeholder="E-mail"  [(ngModel)]="_email" required>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="_type == 'UPDATE_USER' || _type == 'CREATE_USER'">
+      <input matInput  placeholder="Custom parameter" [(ngModel)]="_userCustom">
+    </mat-form-field>
+
+    <mat-checkbox *ngIf="_type == 'UPDATE_USER'" [(ngModel)]="_isEnabled">Enabled</mat-checkbox>
+
+    <mat-form-field type=number *ngIf="_type == 'UPDATE_BALANCE'">
+      <input matInput  placeholder="Amount" [(ngModel)]="_amount" required>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="_type == 'UPDATE_BALANCE'">
+      <input matInput  placeholder="Comment" [(ngModel)]="_comment" required>
+    </mat-form-field>
+
+  </div>
+  <div class="container__btn">
+    <button mat-button class="btn__save" (click)="onSaveClick()">
+      Сохранить
+    </button>
+    <button mat-button class="btn__cancel" (click)="onNoClick()">
+      Отмена
+    </button>
+  </div>
+</div>

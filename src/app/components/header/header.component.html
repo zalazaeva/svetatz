@@ -1,0 +1,13 @@
+<div class="header__container">
+  <div class="header__item">
+    <button mat-button  routerLink="{{menuItem.routing}}"
+       class="nav__item"
+       *ngFor="let menuItem of _metadata"
+       (click)="onClick(menuItem)">{{menuItem.menuItemTitle}}</button>
+  </div>
+  <div class="header__item">
+    <a class="btn" role="button" (click)="onLogout()">
+      <img class="btn__icon" [src]="_logoutIcon">
+    </a>
+  </div>
+</div>

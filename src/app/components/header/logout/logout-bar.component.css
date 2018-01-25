@@ -1,0 +1,9 @@
+.header__item {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.logout {
+  top: 20px;
+}
+

@@ -1,0 +1,62 @@
+<div>
+  <div class="header__table">
+    <div class="create__button">
+      <img [src]="_createIcon" id="create__link" (click)="openCreateUserModal()" title="Создать пользователя">
+    </div>
+
+    <div class="filter">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="users-container mat-elevation-z8">
+    <mat-table #table [dataSource]="dataSource">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="user_name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Username </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{user.user_name}} </mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="email" mat-sort-header>
+        <mat-header-cell *matHeaderCellDef> E-mail </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{user.email}} </mat-cell>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="balance" mat-sort-header>
+        <mat-header-cell *matHeaderCellDef> Balance </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{user.balance}} </mat-cell>
+      </ng-container>
+
+      <!-- Weight Column -->
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="user_id" width="50px">
+        <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
+        <mat-cell *matCellDef="let user" align="right">
+          <img class="icon" [src]="_viewIcon"
+               routerLink="/users/{{user.user_id}}/transactions"
+               (click)="openUserTransactions(user.user_id, user.register_date)">
+          <img class="icon" [src]="_editIcon" (click)="openUpdateUserModal(user.user_id)" >
+          <img class="icon" [src]="_balanceIcon"  (click)="openUpdateUserBalance(user.user_id)">
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator class="paginator" #paginator
+                   [length]="_totalRecords"
+                   [pageSize]="_pageSize"
+                   [pageSizeOptions]="[5, 10, 50]"
+                   (page)="pageChanged($event)">
+    </mat-paginator>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+.create__button {
+  padding: 4px 13px;
+  padding-right: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+  transition: background-color .25s;
+  outline: none;
+}
+
+#create__link {
+  cursor: pointer;
+}
+
+#create__link:hover {
+  color:  rgba(0, 0, 0, .4);
+}
+
+.mat-row:hover {
+  background-color: rgba(0, 0, 0, .04);
+}
+
